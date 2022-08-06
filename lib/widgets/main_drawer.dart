@@ -1,29 +1,28 @@
 import 'package:flutter/material.dart';
 
 import '../screens/filters_screen.dart';
-import '../screens/tabs_screen.dart';
 
 class MainDrawer extends StatelessWidget {
+  Widget buildListTile(String title, IconData icon, Function tapHandler) {
+    return ListTile(
+      leading: Icon(
+        icon,
+        size: 26,
+      ),
+      title: Text(
+        title,
+        style: TextStyle(
+          fontFamily: 'RobotoCondensed',
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      onTap: tapHandler,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    Widget buildListTile(String title, IconData icon, Function tapHandler) {
-      return ListTile(
-        onTap: tapHandler,
-        leading: Icon(
-          icon,
-          size: 26,
-        ),
-        title: Text(
-          title,
-          style: TextStyle(
-            fontFamily: 'RobotoCondensed',
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      );
-    }
-
     return Drawer(
       child: Column(
         children: <Widget>[
